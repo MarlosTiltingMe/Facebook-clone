@@ -6,7 +6,6 @@ from django.contrib.auth import get_user_model
 class UserSerializer(serializers.ModelSerializer):
     statuses = serializers.PrimaryKeyRelatedField(many=True,
                                                 queryset=Status.objects.all())
-
     class Meta:
         model = UserAccount
         fields = ('id', 'username', 'statuses')
