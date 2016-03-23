@@ -1,31 +1,72 @@
 /* Old color scheme ~ #9900CC 0, #990000(dark) */
 body {
-  color:white !important;
-  background-color:#222 !important;
+  color:black !important;
+  background-color:#f7f7f7 !important;
+  margin:0;
+  padding:0;
+  overflow:hidden;
 }
-#nav, .panel-body, .panel-default, #go {
-  -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
-  -moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
-  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
-  margin-bottom:10px;
-  border:none !important;
+.header {
+  height:50px !important;
+  background:#3b5998 !important;
+  border:1px solid #CCC !important;
+  width:100% !important;
+  margin:0px auto !important;
+  margin-bottom:1% !important;
+}
+.header h3{
+  margin-top:0px !important;
+  color:#dfe3ee;
+  padding-left:5px;
+  padding-top:5px;
 }
 .container {
   width:60% !important;
+  background-color:#FFFFFF;
+  border:1px solid #dfe3ee;
+  color:#000000 !important;
+}
+.container h1 {
+  color:black;
+}
+.container a {
+  color:#3b5998;
+}
+.container textarea {
+  border:1px solid #dfe3ee;
+  margin:5px;
+  resize:none;
+}
+.container textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
 }
 .container input, button {
   margin-bottom:5px;
 }
+#mContainer {
+  width:20%;
+}
 input{
     color: black !important;
 }
-button {
-  border: solid 1px white !important;
-  background-image: linear-gradient(to bottom, #9900CC 0, #730099 100%) !important;
+#mContainer>button {
+  background-color:#3b5998;
+  border:none;
+  color:#dfe3ee;
 }
-button:hover {z
-  background-image: linear-gradient(to bottom, #730099 0, #9900CC 100%) !important;
+
+.status {
+  width:50%;
 }
-.panel-heading {
-  background-image: linear-gradient(tp bpttp,. #f5f5f5, #linear-gradient(to bottom,#B91D1D 0, #00ff00 100%) !important;
+.header>img {
+  width:25px;
+  height:25px;
+  border-radius:50%;
+}
+right {
+  display:inline-block;
+  float:right;
 }

@@ -1,0 +1,16 @@
+<div class="container" align="center" ng-init="init()">
+  <div id="mContainer">
+    <textarea placeholder="What's on your mind?"></textarea>
+    <button>Post</button>
+    <hr>
+  </div>
+
+  <div ng-repeat="status in statuses">
+    <div class="status" align="left">
+      <img height="25" width="25" src="{{sortMap(status.owner)}}"/>
+      <a href="#">{{status.owner}}</a>
+      <p>{{status.status}}</p>
+      <hr>
+    </div>
+  </div>
+</div>

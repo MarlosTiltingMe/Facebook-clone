@@ -6,7 +6,7 @@ function AuthController($scope, $http, $cookies, AuthService) {
   $scope.init = function() {
     currentUser();
   }
-  
+
   $scope.register = function(email, username, password) {
     AuthService.register(email, username, password);
   }
@@ -25,10 +25,11 @@ function AuthController($scope, $http, $cookies, AuthService) {
   }
 
   function currentUser() {
-    $http.get('/api/test/').success(function(data) {
+    $http.get('/api/current/').success(function(data) {
 
       if(data.id) {
         $scope.userModel = data.username;
+        console.log($scope.userModel);
         return data.username;
       } else {
         $scope.userModel = 'Anon';

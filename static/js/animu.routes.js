@@ -6,5 +6,13 @@ Animu.config(function($routeProvider) {
     controller: 'HomeController',
     controllerAs: 'HomeCtrl',
     templateUrl: app + 'home/home.tpl.html'
+  }).when('/login', {
+    controller: 'AuthController',
+    controllerAs: 'AuthCtrl',
+    templateUrl: app + 'auth/login.tpl.html'
+  }).when('/register', {
+    controller: 'AuthController',
+    controllerAs: 'AuthCtrl',
+    templateUrl: app + 'auth/auth.tpl.html'
   });
 });

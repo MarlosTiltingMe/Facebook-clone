@@ -35,6 +35,8 @@ class UserAccount(AbstractBaseUser):
     username = models.CharField(max_length=16, unique=True, blank=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     is_admin = models.BooleanField(default=False)
+    favorited = models.ManyToManyField('feed.Status', related_name='favorites')
+    prof_picture = models.CharField(max_length=1024, default='http://menlohacks.com/img/default-avatar.png')
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'username'
