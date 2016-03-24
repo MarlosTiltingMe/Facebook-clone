@@ -19,6 +19,27 @@ class CurUser(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
 
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = UserAccount.objects.all()
     serializer_class = UserSerializer
+
+class LoginView(views.APIView):
+    def post(self, request, format=None):
+        data = request.data
+
+        username = data.get('username', None)
+        password = data.get('password', None)
+
+        account = authenticate(username=username, password=password)
+
+        if account is not None:
+            login(request, account)
+
+            serialized = UserSerializer(account)
+
+            return Response(serialized.data)
+        else:
+            return Response({
+                'status': 'Unathorized',
+                'message': 'Lazy error message.'
+            }, status=status.HTTP_401_UNAUTHORIZED)

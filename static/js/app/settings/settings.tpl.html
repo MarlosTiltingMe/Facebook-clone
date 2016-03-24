@@ -1,0 +1,13 @@
+<div class="container" ng-init="userInfo()">
+
+  <div>
+    <img src="{{picture}}" width="75" height="75"/>
+    <input ng-model="pic" placeholder="{{picture}}" style="margin:5px;" type="text" class="settingsField"/>
+    <button ng-click="changePicture(pic)">Change</button>
+  </div>
+<hr>
+  <div>
+    <p>Statuses: {{statuses.length}}</p>
+    <p>Favorites: {{favorites.length}}</p>
+  </div>
+</div>

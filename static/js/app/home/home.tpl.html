@@ -1,16 +1,26 @@
-<div class="container" align="center" ng-init="init()">
+<div class="main" align="center">
   <div id="mContainer">
-    <textarea placeholder="What's on your mind?"></textarea>
-    <button>Post</button>
-    <hr>
+    <img src="{{avatar}}"/>
+    <i>Posting as <a href="/settings">{{userModel}}</a></i>
+    <textarea ng-model="status" placeholder="What's on your mind?"></textarea>
+    <button ng-click="postStatus(status)">Post</button>
   </div>
+  <div class="container" align="center" ng-init="init()">
 
-  <div ng-repeat="status in statuses">
-    <div class="status" align="left">
-      <img height="25" width="25" src="{{sortMap(status.owner)}}"/>
-      <a href="#">{{status.owner}}</a>
-      <p>{{status.status}}</p>
-      <hr>
+    <div ng-repeat="status in statuses">
+      <div class="status" align="left">
+
+        <img height="25" width="25" src="{{sortMap(status.owner)}}"/>
+
+        <a href="#">{{status.owner}}</a>
+
+        <p>{{status.status}}</p>
+
+        <i class="glyphicon glyphicon-thumbs-up"
+         ng-click="like(status.id)">{{status.favorites.length}}</i>
+
+        <hr>
+      </div>
     </div>
   </div>
 </div>

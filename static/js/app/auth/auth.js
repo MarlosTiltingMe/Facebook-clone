@@ -29,8 +29,7 @@ function AuthController($scope, $http, $cookies, AuthService) {
 
       if(data.id) {
         $scope.userModel = data.username;
-        console.log($scope.userModel);
-        return data.username;
+        $scope.avatar = data.prof_picture;
       } else {
         $scope.userModel = 'Anon';
       }

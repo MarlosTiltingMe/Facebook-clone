@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="Animu">
 <head>
-  <title>Marlo</title>
+  <title>Facebook</title>
   <base href="/"/>
   {% include 'styles.html' %}
 </head>
 <body ng-controller="AuthController as auth">
   <div class="header" ng-init="init()">
     {%verbatim%}
-    <h3>facebook</h3>
-    <right><h4>{{userModel}}</h4></right>
+    <h3><a href="/">facebook</a></h3>
   </div>
   <ng-view>
   {%endverbatim%}

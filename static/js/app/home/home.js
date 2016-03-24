@@ -1,24 +1,24 @@
+"use strict";
 Animu.controller('HomeController', HomeController);
 HomeController.inject = ['$cookies'];
 
 function HomeController($scope, $http, $cookies, HomeService, UserService) {
-  /**
-  This code was written by a filthy weeb. Emphasis on filthy. And weeb..?
-  **/
 
   $scope.init = function() {
-
     $scope.map = new Map();
     HomeService.list().success(function(data) {
       $scope.statuses = data;
-
-      UserService.list().success(function(resp) {
-        for (var c = 0; c < resp.length; c++) {
-          var key = resp[c].username;
-          $scope.map.set(key, resp[c].prof_picture);
+      UserService.list().success(function(users) {
+        for(var user in users) {
+          var key = users[user].username;
+          $scope.map.set(key, users[user].prof_picture);
         }
       });
     });
+  }
+
+  $scope.postStatus = function(status) {
+    HomeService.post({status:status});
   }
 
   function sort(key) {
@@ -27,6 +27,13 @@ function HomeController($scope, $http, $cookies, HomeService, UserService) {
 
   $scope.sortMap = function(key) {
     return sort(key);
+  }
+
+  $scope.like = function(status) {
+    UserService.current().success(function(data) {
+      console.log(data);
+      HomeService.update(status, {favorites:[data.id]});
+    });
   }
 
 }

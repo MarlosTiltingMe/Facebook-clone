@@ -16,11 +16,15 @@ function UserService($http) {
   }
 
   function update(id, post) {
-    return $http.put('/api/users/' + id + '/', post);
+    return $http.patch('/api/users/' + id + '/', post);
   }
 
   function destroy(id) {
     return $http.delete('/api/users/' + id + '/');
+  }
+
+  function current() {
+    return $http.get('/api/current/');
   }
 
   return {
@@ -28,6 +32,7 @@ function UserService($http) {
     list: list,
     get: get,
     update: update,
-    destroy: destroy
+    destroy: destroy,
+    current: current
   };
 }

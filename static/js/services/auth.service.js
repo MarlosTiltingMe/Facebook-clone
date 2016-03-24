@@ -10,7 +10,7 @@ function AuthService($cookies, $http) {
   return AuthService;
 
   function login(username, password) {
-    return $http.post('/api-auth/login/', {
+    return $http.post('api/auth/login/', {
       username: username,
       password: password
     }).then(loginSuccessFn, loginErrorFn);
@@ -33,7 +33,7 @@ function AuthService($cookies, $http) {
 
     function registerSuccessFn(data, status, headers, config) {
       AuthService.login(username, password);
-      window.location = '/login';
+      //window.location = '/login';
     }
 
     function registerErrorFn(data, status, headers, config) {

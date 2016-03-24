@@ -11,8 +11,18 @@ function HomeService($http) {
     return $http.get('/api/statuses/' + id + '/');
   }
 
+  function post(post) {
+    return $http.post('/api/statuses/', post);
+  }
+
+  function update(id, post) {
+    return $http.patch('/api/statuses/' + id + '/', post);
+  }
+
   return {
     list: list,
-    status: status
+    status: status,
+    post: post,
+    update: update
   };
 }
