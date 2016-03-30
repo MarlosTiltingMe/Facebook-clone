@@ -23,6 +23,18 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = UserAccount.objects.all()
     serializer_class = UserSerializer
 
+    def create(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            UserAccount.objects.create_user(**serializer.validated_data)
+
+            return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
+
+        return Response({
+            'status': 'Bad request',
+            'message': 'Account could not be created'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
 class LoginView(views.APIView):
     def post(self, request, format=None):
         data = request.data
@@ -31,7 +43,6 @@ class LoginView(views.APIView):
         password = data.get('password', None)
 
         account = authenticate(username=username, password=password)
-
         if account is not None:
             login(request, account)
 

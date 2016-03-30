@@ -1,0 +1,45 @@
+<div align="center">
+  <div style="width:75%;">
+    <div class="panel panel-default" ng-init="init()">
+    <div class="panel-heading">Members - {{users.length}}</div>
+    <table class=table>
+       <thead>
+           <tr>
+               <th>User</th>
+               <th>FG</th>
+               <th>AG</th>
+               <th>DG</th>
+               <th>EG</th>
+               <th>PH</th>
+               <th>HG</th>
+               <th>SG</th>
+               <th>DR</th>
+               <th>RV</th>
+               <th>RG</th>
+               <th>Twitter</th>
+               <th>Twitch</th>
+               <th>YouTube</th>
+           </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat="user in users">
+           <td><img ng-src="{{user.prof_picture}}">{{user.username}}</td>
+           <td>{{user.fgunz}}</td>
+           <td>{{user.agunz}}</td>
+           <td>{{user.darkgunz}}</td>
+           <td>{{user.egunz}}</td>
+           <td>{{user.phgunz}}</td>
+           <td>{{user.hggunz}}</td>
+           <td>{{user.sgunz}}</td>
+           <td>{{user.drgunz}}</td>
+           <td>{{user.rival}}</td>
+           <td>{{user.reloaded}}</td>
+           <td>{{user.twitter}}</td>
+           <td>{{user.twitch}}</td>
+           <td>{{user.youtube}}</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+  </div>
+</div>

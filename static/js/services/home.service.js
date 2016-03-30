@@ -19,10 +19,15 @@ function HomeService($http) {
     return $http.patch('/api/statuses/' + id + '/', post);
   }
 
+  function login(username, password) {
+    return $http.post('/api/auth/login/', {username:username, password:password});
+  }
+
   return {
     list: list,
     status: status,
     post: post,
-    update: update
+    update: update,
+    login: login
   };
 }

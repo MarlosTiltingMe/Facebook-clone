@@ -4,7 +4,7 @@ from users.models import UserAccount
 
 class StatusSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-
+    
 
     class Meta:
         model = Status

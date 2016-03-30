@@ -31,12 +31,33 @@ class UserAccountManager(BaseUserManager):
 		return user
 
 class UserAccount(AbstractBaseUser):
-    email = models.EmailField(unique=True, blank=False)
+	#Basic
+    email = models.EmailField(unique=True)
     username = models.CharField(max_length=16, unique=True, blank=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     is_admin = models.BooleanField(default=False)
     favorited = models.ManyToManyField('feed.Status', related_name='favorites')
     prof_picture = models.CharField(max_length=1024, default='http://menlohacks.com/img/default-avatar.png')
+
+	#GunZ Servers Start Here
+    fgunz = models.CharField(max_length=24, default='None')
+    darkgunz = models.CharField(max_length=24, default='None')
+    drgunz = models.CharField(max_length=24, default='None')
+    egunz = models.CharField(max_length=24, default='None')
+    hggunz = models.CharField(max_length=24, default='None')
+    sgunz = models.CharField(max_length=24, default='None')
+    phgunz = models.CharField(max_length=24, default='None')
+    rival = models.CharField(max_length=24, default='None')
+    reloaded = models.CharField(max_length=24, default='None')
+    agunz = models.CharField(max_length=24, default='None')
+
+	#Social/Broadcasting
+    skype = models.CharField(max_length=24, default='None')
+    twitter = models.CharField(max_length=24, default='None')
+    twitch = models.CharField(max_length=24, default='None')
+    youtube = models.CharField(max_length=24, default='None')
+
+	#zz stuff
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'username'

@@ -10,10 +10,9 @@ from serializers import StatusSerializer
 
 
 class StatusViewSet(viewsets.ModelViewSet):
-    queryset = Status.objects.all()
+    queryset = Status.objects.all().order_by('-created')
     serializer_class = StatusSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                        IsOwnerOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
     def perform_create(self, serializer):

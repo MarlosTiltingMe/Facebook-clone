@@ -18,5 +18,9 @@ Animu.config(function($routeProvider) {
     controller: 'SettingsController',
     controllerAs: 'SettingsCtrl',
     templateUrl: app + 'settings/settings.tpl.html'
+  }).when('/members', {
+    controller: 'MembersController',
+    controllerAs: 'MembersCtrl',
+    templateUrl: app + 'members/members.tpl.html'
   });
 });

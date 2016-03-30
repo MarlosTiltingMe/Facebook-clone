@@ -16,11 +16,11 @@ function AuthService($cookies, $http) {
     }).then(loginSuccessFn, loginErrorFn);
 
     function loginSuccessFn(data, status, headers, config) {
-      window.location = '/';
+      //window.location = '/';
     }
 
     function loginErrorFn(data, status, headers, config) {
-      window.location = '/login';
+      //window.location = '/login';
     }
   }
 

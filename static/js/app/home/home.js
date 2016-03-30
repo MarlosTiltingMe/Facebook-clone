@@ -14,11 +14,13 @@ function HomeController($scope, $http, $cookies, HomeService, UserService) {
           $scope.map.set(key, users[user].prof_picture);
         }
       });
+      $scope.isAuth();
     });
   }
 
   $scope.postStatus = function(status) {
-    HomeService.post({status:status});
+    HomeService.post({status:status, favorites:[]});
+    location.reload();
   }
 
   function sort(key) {
@@ -31,8 +33,33 @@ function HomeController($scope, $http, $cookies, HomeService, UserService) {
 
   $scope.like = function(status) {
     UserService.current().success(function(data) {
-      console.log(data);
-      HomeService.update(status, {favorites:[data.id]});
+      HomeService.status(status).success(function(resp) {
+        var curFavs = resp.favorites;
+        curFavs.push(data.id);
+        HomeService.update(status, {favorites:curFavs});
+        location.reload();
+      });
+    });
+  }
+
+  $scope.isAuth = function() {
+    UserService.current().then(a, b);
+
+    function a(data, status, headers, config) {
+      $scope.authed = true;
+      $scope.anon = false;
+    }
+
+    function b(data, status, headers, config) {
+      $scope.anon = true;
+    }
+  }
+
+  $scope.login = function(username, password) {
+    HomeService.login(username, password).success(function() {
+      $scope.authed = true;
+      $scope.anon = false;
+      location.reload();
     });
   }
 

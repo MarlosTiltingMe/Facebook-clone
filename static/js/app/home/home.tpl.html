@@ -1,26 +1,32 @@
-<div class="main" align="center">
-  <div id="mContainer">
-    <img src="{{avatar}}"/>
-    <i>Posting as <a href="/settings">{{userModel}}</a></i>
-    <textarea ng-model="status" placeholder="What's on your mind?"></textarea>
-    <button ng-click="postStatus(status)">Post</button>
-  </div>
-  <div class="container" align="center" ng-init="init()">
+<div class="main" align="center" ng-init="init()">
+  <div ng-if="authed">
+    <div id="mContainer">
+      <img src="{{avatar}}"/>
+      <b style="background-color:#121212; border:1px solid white;">Posting as <a href="/settings">{{userModel}}</a></b>
+      <textarea ng-model="status" placeholder="What's on your mind?"></textarea>
+      <button ng-click="postStatus(status)">Post</button>
+    </div>
+    <div class="container" align="center">
 
-    <div ng-repeat="status in statuses">
-      <div class="status" align="left">
+      <div ng-repeat="status in statuses">
+        <div class="status" align="left">
 
-        <img height="25" width="25" src="{{sortMap(status.owner)}}"/>
+          <img height="25" width="25" src="{{sortMap(status.owner)}}"/>
 
-        <a href="#">{{status.owner}}</a>
+          <a href="#">{{status.owner}}</a>
 
-        <p>{{status.status}}</p>
+          <p>{{status.status}}</p>
 
-        <i class="glyphicon glyphicon-thumbs-up"
-         ng-click="like(status.id)">{{status.favorites.length}}</i>
+          <i class="glyphicon glyphicon-thumbs-up"
+           ng-click="like(status.id)">{{status.favorites.length}}</i>
 
-        <hr>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div class="main" align="center" ng-if="anon">
+  <input ng-model="username" placeholder="Username" style="margin:5px;" type="text" class="settingsField"/>
+  <input ng-model="password" placeholder="Password" style="margin:5px;" type="password" class="settingsField"/>
+  <button ng-click="login(username, password)">Login</button>
 </div>

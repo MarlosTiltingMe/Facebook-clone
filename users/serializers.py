@@ -5,8 +5,11 @@ from django.contrib.auth import get_user_model
 
 class UserSerializer(serializers.ModelSerializer):
     statuses = serializers.PrimaryKeyRelatedField(many=True,
-                                                queryset=Status.objects.all())
-
+                                                queryset=Status.objects.all(),
+                                                required=False)
+    favorited = serializers.PrimaryKeyRelatedField(many=True,
+                                                queryset=Status.objects.all(),
+                                                required=False)
     class Meta:
         model = UserAccount
-        fields = ('id', 'username', 'prof_picture', 'statuses', 'favorited')
+        fields = ('__all__')

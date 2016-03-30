@@ -1,17 +1,22 @@
 /* Old color scheme ~ #9900CC 0, #990000(dark) */
 
 body {
-    background-color: #f7f7f7 !important;
+    background: url("http://i.imgur.com/i9FScjn.jpg") no-repeat fixed center !important;
     margin: 0;
     padding: 0;
+    color:#ccc !important;
 }
 .header {
     height: 50px !important;
-    background: #3b5998 !important;
-    border: 1px solid #CCC !important;
+    background: #000000 !important;
+    border: 1px solid #828282 !important;
     width: 100% !important;
     margin: 0px auto !important;
     margin-bottom: 1% !important;
+}
+.header img {
+  width:8%;
+  height:100%;
 }
 .header h3 {
     margin-top: 0px !important;
@@ -19,20 +24,21 @@ body {
     padding-left: 5px;
     padding-top: 5px;
 }
-.header a { color: #dfe3ee !important; }
+.header a { color: #ffffff !important; }
 .header a:hover { text-decoration: none; }
 .header a:focus { text-decoration: none; }
 .container {
+    /*opacity: 0.8;
+    filter: alpha(opacity=40); /* For IE8 and earlier */*/
     width: 60% !important;
-    background-color: #FFFFFF;
-    border: 1px solid #dfe3ee;
-    color: #000000 !important;
+    background-color: #121212;
+    border: 1px solid #424242;
+    color: #ccc !important;
     margin: 5px;
     padding:5px;
 }
 
-.container h1 { color: black; }
-a { color: #3b5998 !important; }
+a { color: #ffffff !important; }
 
 textarea {
     border: 1px solid #dfe3ee;
@@ -56,7 +62,7 @@ textarea:focus {
 }
 input { color: black !important; }
 button {
-    background-color: #3b5998;
+    background-color: #323232;
     border: none;
     color: #FFF !important;
 }

@@ -8,6 +8,37 @@
 <hr>
   <div>
     <p>Statuses: {{statuses.length}}</p>
-    <p>Favorites: {{favorites.length}}</p>
+
+    <div class="servers" style="width:25%;">
+      <p>FG</p><input ng-model="fgunz" placeholder="Freestyle GunZ" type="text" class="settingsField"/>
+      <p>HG</p><input ng-model="hggunz" placeholder="Hero GunZ" type="text" class="settingsField"/>
+      <p>PH</p><input ng-model="phgunz" placeholder="PH GunZ" type="text" class="settingsField"/>
+      <p>RG</p><input ng-model="reloaded" placeholder="Reloaded GunZ" type="text" class="settingsField"/>
+      <p>RI</p><input ng-model="rival" placeholder="Rival GunZ" type="text" class="settingsField"/>
+      <p>DG</p><input ng-model="darkgunz" placeholder="Dark GunZ" type="text" class="settingsField"/>
+      <p>DR</p><input ng-model="drgunz" placeholder="DaemonsRing GunZ" type="text" class="settingsField"/>
+      <p>EG</p><input ng-model="egunz" placeholder="Eagle GunZ" type="text" class="settingsField"/>
+      <p>AG</p><input ng-model="agunz" placeholder="Artic GunZ" type="text" class="settingsField"/>
+    </div>
+    <button ng-click="changeInfo()">Change</button>
   </div>
 </div>
+
+<!--
+//GunZ Servers
+$scope.fgunz = data.fgunz;
+$scope.hggunz = data.hggunz;
+$scope.phgunz = data.phgunz;
+$scope.reloaded = data.reloaded;
+$scope.rival = data.rival;
+$scope.sgunz = data.sgunz;
+$scope.darkgunz = data.darkgunz;
+$scope.drgunz = data.drgunz;
+$scope.egunz = data.egunz;
+$scope.agunz = data.agunz;
+
+//Social
+$scope.twitter = data.twitter;
+$scope.twitch = data.twitch;
+$scope.youtube = data.youtube;
+ -->
