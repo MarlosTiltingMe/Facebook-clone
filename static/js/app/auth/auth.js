@@ -31,7 +31,7 @@ function AuthController($scope, $http, $cookies, AuthService) {
         $scope.userModel = data.username;
         $scope.avatar = data.prof_picture;
       } else {
-        $scope.userModel = 'Anon';
+        //
       }
 
     });

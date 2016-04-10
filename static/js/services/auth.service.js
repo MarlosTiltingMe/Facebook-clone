@@ -16,11 +16,11 @@ function AuthService($cookies, $http) {
     }).then(loginSuccessFn, loginErrorFn);
 
     function loginSuccessFn(data, status, headers, config) {
-      //window.location = '/';
+      window.location = '/';
     }
 
     function loginErrorFn(data, status, headers, config) {
-      //window.location = '/login';
+      window.location = '/login';
     }
   }
 
@@ -33,11 +33,11 @@ function AuthService($cookies, $http) {
 
     function registerSuccessFn(data, status, headers, config) {
       AuthService.login(username, password);
-      //window.location = '/login';
+      window.location = '/login';
     }
 
     function registerErrorFn(data, status, headers, config) {
-      alert("Registration error xdxd");
+      alert("Registration error.");
     }
   }
 }

@@ -34,35 +34,35 @@ function SettingsController($scope, $http, $cookies, HomeService, UserService) {
   }
 
   function compile() {
-    var info = {};
+    var info = {
+      //User stuff
+      username:$scope.name,
+      email:$scope.email,
+      password:$scope.password,
 
-    //User stuff
-    info.username = $scope.name;
-    info.email = $scope.email;
-    info.password = $scope.password;
+      //Servers
+      fgunz:$scope.fgunz,
+      hggunz:$scope.hggunz,
+      phgunz:$scope.phgunz,
+      reloaded:$scope.reloaded,
+      rival:$scope.rival,
+      sgunz:$scope.sgunz,
+      darkgunz:$scope.darkgunz,
+      egunz:$scope.egunz,
+      agunz:$scope.agunz,
 
-    //Servers
-    info.fgunz = $scope.fgunz;
-    info.hggunz = $scope.hggunz;
-    info.phgunz = $scope.phgunz;
-    info.reloaded = $scope.reloaded;
-    info.rival = $scope.rival;
-    info.sgunz = $scope.sgunz;
-    info.darkgunz = $scope.darkgunz;
-    info.egunz = $scope.egunz;
-    info.agunz = $scope.agunz;
-
-    //Social
-    info.twitter = $scope.twitter;
-    info.twitch = $scope.twitch;
-    info.youtube = $scope.youtube;
+      //Social
+      twitter:$scope.twitter,
+      twitch:$scope.twitch,
+      youtube:$scope.youtube
+    };
 
     return info;
   }
 
   $scope.changeInfo = function() {
     UserService.put($scope.id, compile()).success(function(data) {
-      console.log('a');
+      window.location = '/settings';
     });
   }
 
